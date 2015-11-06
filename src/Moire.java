@@ -19,16 +19,17 @@ import static java.awt.Dialog.*;
 
 
  public class Moire extends Canvas {
-
     public void paint(Graphics g) {
+
         int i = 3;
         Rectangle bb = new Rectangle(getWidth()/2, getHeight()/2 , i, i );
         while (bb.width < getWidth()) {
             bb.grow(i, i);
             g.drawOval (bb.x, bb.y,  bb.width, bb.height);
-
         }
+
     }
+
 
 
     public static void main(String[] args) {
@@ -37,7 +38,7 @@ import static java.awt.Dialog.*;
         frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // add the canvas
-        Canvas canvas = new Moire();
+        Canvas canvas = new Lines();
         canvas.setSize(400, 400);
         canvas.setBackground(Color.white);
         frame1.getContentPane().add(canvas);
@@ -46,7 +47,7 @@ import static java.awt.Dialog.*;
         frame1.pack();
         frame1.setVisible(true);
 
-        JFrame frame2 = new JFrame();
+        /*JFrame frame2 = new JFrame();
         frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // add the canvas
@@ -57,29 +58,20 @@ import static java.awt.Dialog.*;
 
         // show the frame
         frame2.pack();
-        frame2.setVisible(true);
-
+        frame2.setVisible(true);*/
     }
-
-    }
+ }
 
  class Lines extends Canvas {
-
      public void paint(Graphics g) {
-
-         //Rectangle bb = new Rectangle(getWidth()/2, getHeight()/2 , i, i );
          for (int j = 0; j < this.getWidth(); j+=20) {
                g.drawLine(j, 0, this.getWidth()-j, this.getHeight());
-
-             }
+         }
          for (int j = 0; j < this.getHeight(); j+=20) {
-
              g.drawLine(0, j, this.getWidth(), this.getHeight()-j);
          }
-
-         }
-
- }
+     }
+}
 
 
 
